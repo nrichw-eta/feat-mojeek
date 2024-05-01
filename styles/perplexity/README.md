@@ -14,33 +14,14 @@
 </p>
 
 <p align="center">
-  <img src="assets/catwalk.webp"/>
+  <img src="preview.webp"/>
 </p>
-
-## Previews
-
-<details>
-<summary>🌻 Latte</summary>
-<img src="assets/latte.webp"/>
-</details>
-<details>
-<summary>🪴 Frappé</summary>
-<img src="assets/frappe.webp"/>
-</details>
-<details>
-<summary>🌺 Macchiato</summary>
-<img src="assets/macchiato.webp"/>
-</details>
-<details>
-<summary>🌿 Mocha</summary>
-<img src="assets/mocha.webp"/>
-</details>
 
 
 
 ## 💝 Current Maintainers
 - [Isabel](https://github.com/isabelroses)
-- [Tnixc](https://github.com/tnixc)
+- [Tnixc](https://github.com/Tnixc)
 
 
 &nbsp;

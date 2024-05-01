@@ -14,35 +14,17 @@
 </p>
 
 <p align="center">
-  <img src="assets/catwalk.webp"/>
+  <img src="preview.webp"/>
 </p>
-
-## Previews
-
-<details>
-<summary>🌻 Latte</summary>
-<img src="assets/latte.webp"/>
-</details>
-<details>
-<summary>🪴 Frappé</summary>
-<img src="assets/frappe.webp"/>
-</details>
-<details>
-<summary>🌺 Macchiato</summary>
-<img src="assets/macchiato.webp"/>
-</details>
-<details>
-<summary>🌿 Mocha</summary>
-<img src="assets/mocha.webp"/>
-</details>
 
 
 ## 🙋 FAQ
 - Q: **What does the 'Enable for black bars' option mean?**\
   A: It's available in case you have an OLED display. If you have one, you might want to enable this.
 
-## 💝 Current Maintainer
+## 💝 Current Maintainers
 - [Isabel](https://github.com/isabelroses)
+- [uncenter](https://github.com/uncenter)
 
 ## 💖 Past Maintainer
 - [Elkrien](https://github.com/elkrien)

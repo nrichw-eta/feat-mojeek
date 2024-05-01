@@ -14,36 +14,16 @@
 </p>
 
 <p align="center">
-  <img src="assets/catwalk.webp"/>
+  <img src="preview.webp"/>
 </p>
 
-## Previews
 
-<details>
-<summary>🌻 Latte</summary>
-<img src="assets/latte.webp"/>
-</details>
-<details>
-<summary>🪴 Frappé</summary>
-<img src="assets/frappe.webp"/>
-</details>
-<details>
-<summary>🌺 Macchiato</summary>
-<img src="assets/macchiato.webp"/>
-</details>
-<details>
-<summary>🌿 Mocha</summary>
-<img src="assets/mocha.webp"/>
-</details>
-
-
-## 🙋 FAQ
-- Q: How do I change the accent color?\
-  A: Changing `--color-primary` to any other color should change the accent color in most places.
 
 ## 💝 Current Maintainer
-- [justTOBBI](https://github.com/justTOBBI)
+- [Isabel](https://github.com/isabelroses)
 
+## 💖 Past Maintainer
+- [justTOBBI](https://github.com/justTOBBI)
 
 &nbsp;
 

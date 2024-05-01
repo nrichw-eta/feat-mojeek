@@ -7,14 +7,20 @@ import { join, relative } from "std/path/mod.ts";
 
 import { REPO_ROOT } from "@/deps.ts";
 import { log } from "@/lint/logger.ts";
-import { formatListOfItems, getUserstylesData } from "@/utils.ts";
+import { formatListOfItems } from "@/utils.ts";
+import type { Userstyles } from "@/types/userstyles.d.ts";
 
 export const verifyMetadata = async (
   entry: WalkEntry,
   content: string,
   userstyle: string,
+  userstyles: Userstyles,
+  fix: boolean,
 ) => {
-  const assert = await assertions(userstyle);
+  // `usercss-meta` prohibits any '\r' characters, which seem to be present on Windows.
+  content = content.replaceAll("\r\n", "\n");
+
+  const assert = assertions(userstyle, userstyles);
   const file = relative(REPO_ROOT, entry.path);
 
   const { metadata, errors: parsingErrors } = usercssMeta.parse(content, {
@@ -64,7 +70,7 @@ export const verifyMetadata = async (
   for (const variable of ["darkFlavor", "lightFlavor", "accentColor"]) {
     const declaration = `@var select ${variable}`;
 
-    const expected = template.find((line) => line.includes(declaration));
+    const expected = template.find((line) => line.includes(declaration))!;
     const current = lines.findIndex((line) => line.includes(declaration)) +
       1;
 
@@ -98,6 +104,10 @@ export const verifyMetadata = async (
         startLine: current,
         content,
       }, "warning");
+
+      if (fix) {
+        content = content.replace(lines[current - 1], expected);
+      }
     }
   }
 
@@ -113,16 +123,12 @@ export const verifyMetadata = async (
   return {
     globalVars,
     isLess: metadata.preprocessor === assert.preprocessor,
+    fixed: content,
   };
 };
 
-const assertions = async (userstyle: string) => {
+const assertions = (userstyle: string, userstyles: Userstyles) => {
   const prefix = "https://github.com/catppuccin/userstyles";
-
-  const { userstyles } = await getUserstylesData().catch((err) => {
-    console.error(err);
-    Deno.exit(1);
-  });
 
   if (!userstyles[userstyle]) {
     log("Metadata section for this userstyle has not been added", {

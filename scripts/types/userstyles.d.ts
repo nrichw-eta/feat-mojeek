@@ -5,7 +5,7 @@
  */
 export type Name = [string, string, ...string[]] | string;
 /**
- * The categories that fit the userstyle the most, the first category is the primary category which the port will be listed under on the README.
+ * The categories that fit the userstyle the most, the first category is the primary category which the userstyle will be listed under on the README.
  *
  * @minItems 1
  * @maxItems 3
@@ -48,7 +48,7 @@ export type Category =
   | "wiki"
   | "window_manager";
 /**
- * The fill color for the icon on the Catppuccin website.
+ * The fill color for the icon on the Catppuccin website, which should match the color used by Simple Icons. If the icon does not exist in Simple Icons, choose the most suitable color from the branding.
  */
 export type Color =
   | "rosewater"
@@ -173,7 +173,7 @@ export interface Userstyles {
 export interface Userstyle {
   name: Name;
   categories: Categories;
-  color?: Color;
+  color: Color;
   icon?: Icon;
   readme: README;
 }

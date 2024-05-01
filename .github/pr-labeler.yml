@@ -26,9 +26,12 @@ graphite: styles/graphite/**/*
 hackage: styles/hackage/**/*
 hacker-news: styles/hacker-news/**/*
 holodex: styles/holodex/**/*
+home-manager-options-search: styles/home-manager-options-search/**/*
 homepage: styles/homepage/**/*
 hoppscotch: styles/hoppscotch/**/*
+hyperpipe: styles/hyperpipe/**/*
 ichi.moe: styles/ichi.moe/**/*
+inoreader: styles/inoreader/**/*
 instagram: styles/instagram/**/*
 invidious: styles/invidious/**/*
 invokeai: styles/invokeai/**/*
@@ -51,9 +54,12 @@ npm: styles/npm/**/*
 openmediavault: styles/openmediavault/**/*
 paste.rs: styles/paste.rs/**/*
 perplexity: styles/perplexity/**/*
+picrew: styles/picrew/**/*
 pinterest: styles/pinterest/**/*
 planet-minecraft: styles/planet-minecraft/**/*
+pronouns.page: styles/pronouns.page/**/*
 proton: styles/proton/**/*
+pypi: styles/pypi/**/*
 quizlet: styles/quizlet/**/*
 reddit: styles/reddit/**/*
 searxng: styles/searxng/**/*
@@ -64,6 +70,9 @@ skiff: styles/skiff/**/*
 stylus: styles/stylus/**/*
 substack: styles/substack/**/*
 syncthing: styles/syncthing/**/*
+tabnews: styles/tabnews/**/*
+tldraw: styles/tldraw/**/*
+trinket: styles/trinket/**/*
 tuta: styles/tuta/**/*
 twitch: styles/twitch/**/*
 twitter: styles/twitter/**/*

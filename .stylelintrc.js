@@ -1,10 +1,15 @@
+// @ts-check
+
 /**
  * @type {import('npm:stylelint').Config}
  */
-const config = {
+export default {
   extends: "stylelint-config-standard",
+  plugins: ["./scripts/lint/stylelint-custom/optimizedSvgs.js"],
   customSyntax: "postcss-less",
   rules: {
+    "catppuccin/optimized-svgs": true,
+
     "selector-class-pattern": null,
     "custom-property-pattern": null,
     "selector-id-pattern": null,
@@ -19,6 +24,7 @@ const config = {
     "alpha-value-notation": null,
     "color-function-notation": null,
     "hue-degree-notation": null,
+    "keyframes-name-pattern": null,
 
     // Needed for Stylus v1.5.35 workaround, see #341
     "media-feature-range-notation": "prefix",
@@ -26,6 +32,9 @@ const config = {
     // These are not invalid with Less.
     "no-invalid-position-at-import-rule": null,
     "no-invalid-double-slash-comments": null,
+
+    // font-* properties are disallowed anyway.
+    "font-family-no-missing-generic-family-keyword": null,
 
     "at-rule-disallowed-list": [
       ["/^font.*/"],
@@ -67,6 +76,7 @@ const config = {
       },
     ],
 
+    "selector-type-no-unknown": null,
     "function-no-unknown": [
       true,
       {
@@ -169,5 +179,3 @@ const config = {
     "no-descending-specificity": null,
   },
 };
-
-module.exports = config;

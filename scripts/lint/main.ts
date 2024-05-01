@@ -10,6 +10,8 @@ import { checkForMissingFiles } from "@/lint/file-checker.ts";
 import { log } from "@/lint/logger.ts";
 import { verifyMetadata } from "@/lint/metadata.ts";
 import { lint } from "@/lint/stylelint.ts";
+import { getUserstylesData } from "@/utils.ts";
+import stylelintConfig from "../../.stylelintrc.js";
 
 const flags = parseFlags(Deno.args, { boolean: ["fix"] });
 const subDir = flags._[0]?.toString() ?? "";
@@ -19,6 +21,7 @@ const stylesheets = walk(join(REPO_ROOT, "styles", subDir), {
   includeSymlinks: false,
   match: [/\.user.css$/],
 });
+const { userstyles } = getUserstylesData();
 
 let failed = false;
 
@@ -26,10 +29,18 @@ for await (const entry of stylesheets) {
   const dir = basename(dirname(entry.path));
   const file = relative(REPO_ROOT, entry.path);
 
-  const content = await Deno.readTextFile(entry.path);
+  let content = await Deno.readTextFile(entry.path);
 
   // Verify the UserCSS metadata.
-  const { globalVars, isLess } = await verifyMetadata(entry, content, dir);
+  const { globalVars, isLess, fixed } = await verifyMetadata(
+    entry,
+    content,
+    dir,
+    userstyles,
+    flags.fix,
+  );
+
+  content = fixed;
 
   // Don't attempt to compile or lint non-LESS files.
   if (!isLess) continue;
@@ -47,7 +58,9 @@ for await (const entry of stylesheets) {
   );
 
   // Lint with Stylelint.
-  await lint(entry, content, flags.fix).catch(() => failed = true);
+  await lint(entry, content, flags.fix, stylelintConfig).catch(() =>
+    failed = true
+  );
 }
 
 if (await checkForMissingFiles() === false) failed = true;
