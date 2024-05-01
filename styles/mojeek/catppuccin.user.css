@@ -18,7 +18,7 @@
 
 /* For help with URL rules, please see https://github.com/openstyles/stylus/wiki/Writing-styles#valid--moz-document-rules. */
 
-@-moz-document domain('example.org') {
+@-moz-document domain('mojeek.org') {
   @media (prefers-color-scheme: light) {
     :root {
       #catppuccin(@lightFlavor, @accentColor);
